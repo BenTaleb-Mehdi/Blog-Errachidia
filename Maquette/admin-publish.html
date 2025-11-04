@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publier un article - Errachidia Sahara Solidaire</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-amber-50">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-orange-600 to-amber-700 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h1 class="text-3xl font-bold">Publier un article</h1>
+                    <p class="text-amber-100 text-sm mt-1">Créer une nouvelle initiative</p>
+                </div>
+                <nav class="flex gap-4">
+                    <a href="admin.html" class="px-4 py-2 bg-orange-700 rounded-lg hover:bg-orange-800 transition">Dashboard</a>
+                    <a href="index.html" class="px-4 py-2 bg-orange-700 rounded-lg hover:bg-orange-800 transition">Site Public</a>
+                    <button class="px-4 py-2 bg-red-600 rounded-lg hover:bg-red-700 transition">Déconnexion</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto">
+            <!-- Breadcrumb -->
+            <div class="mb-6 text-sm text-gray-600">
+                <a href="admin.html" class="hover:text-orange-600">Dashboard</a>
+                <span class="mx-2">/</span>
+                <span class="text-gray-800">Publier un article</span>
+            </div>
+
+            <!-- Form -->
+            <form class="bg-white rounded-lg shadow p-8">
+                <div class="flex flex-col gap-6">
+                    <!-- Title -->
+                    <div class="flex flex-col gap-2">
+                        <label for="title" class="font-semibold text-gray-800">
+                            Titre de l'article <span class="text-red-500">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="title" 
+                            name="title"
+                            placeholder="Ex: Bibliothèque mobile à Goulmima"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                            required
+                        />
+                    </div>
+
+                    <!-- Category -->
+                    <div class="flex flex-col gap-2">
+                        <label for="category" class="font-semibold text-gray-800">
+                            Catégorie <span class="text-red-500">*</span>
+                        </label>
+                        <select 
+                            id="category" 
+                            name="category"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                            required
+                        >
+                            <option value="">Sélectionner une catégorie</option>
+                            <option value="education">Éducation</option>
+                            <option value="agriculture">Agriculture</option>
+                            <option value="eau">Eau</option>
+                            <option value="sante">Santé</option>
+                            <option value="environnement">Environnement</option>
+                            <option value="artisanat">Artisanat</option>
+                        </select>
+                    </div>
+
+                    <!-- Short Description -->
+                    <div class="flex flex-col gap-2">
+                        <label for="description" class="font-semibold text-gray-800">
+                            Description courte <span class="text-red-500">*</span>
+                        </label>
+                        <textarea 
+                            id="description" 
+                            name="description"
+                            rows="3"
+                            placeholder="Résumé de l'article affiché sur la page d'accueil (200-300 caractères)"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent resize-none"
+                            required
+                        ></textarea>
+                        <p class="text-sm text-gray-500">Caractères: 0/300</p>
+                    </div>
+
+                    <!-- Image URL -->
+                    <div class="flex flex-col gap-2">
+                        <label for="image" class="font-semibold text-gray-800">
+                            URL de l'image
+                        </label>
+                        <input 
+                            type="url" 
+                            id="image" 
+                            name="image"
+                            placeholder="https://exemple.com/image.jpg"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                        />
+                        <p class="text-sm text-gray-500">Optionnel - Laissez vide pour utiliser l'icône par défaut</p>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="flex flex-col gap-2">
+                        <label for="content" class="font-semibold text-gray-800">
+                            Contenu de l'article <span class="text-red-500">*</span>
+                        </label>
+                        <textarea 
+                            id="content" 
+                            name="content"
+                            rows="15"
+                            placeholder="Rédigez le contenu complet de l'article ici...&#10;&#10;Utilisez des paragraphes pour structurer votre texte.&#10;&#10;N'hésitez pas à détailler le contexte, les objectifs, les résultats et les perspectives de l'initiative."
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent resize-none font-mono text-sm"
+                            required
+                        ></textarea>
+                        <p class="text-sm text-gray-500">Le contenu sera affiché sur la page de détail de l'article</p>
+                    </div>
+
+                    <!-- Author Information -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="flex flex-col gap-2">
+                            <label for="author" class="font-semibold text-gray-800">
+                                Auteur <span class="text-red-500">*</span>
+                            </label>
+                            <input 
+                                type="text" 
+                                id="author" 
+                                name="author"
+                                placeholder="Ex: Youssef Benali"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                                required
+                            />
+                        </div>
+
+                        <div class="flex flex-col gap-2">
+                            <label for="organization" class="font-semibold text-gray-800">
+                                Organisation
+                            </label>
+                            <input 
+                                type="text" 
+                                id="organization" 
+                                name="organization"
+                                placeholder="Ex: Association Lumière du Savoir"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                            />
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="bg-amber-50 rounded-lg p-6 border-l-4 border-orange-600">
+                        <h3 class="font-bold text-gray-800 mb-4">Informations de contact (optionnel)</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex flex-col gap-2">
+                                <label for="email" class="font-semibold text-gray-700 text-sm">
+                                    Email
+                                </label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email"
+                                    placeholder="contact@association.ma"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                                />
+                            </div>
+
+                            <div class="flex flex-col gap-2">
+                                <label for="phone" class="font-semibold text-gray-700 text-sm">
+                                    Téléphone
+                                </label>
+                                <input 
+                                    type="tel" 
+                                    id="phone" 
+                                    name="phone"
+                                    placeholder="+212 6XX XX XX XX"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Statistics (Optional) -->
+                    <div class="bg-blue-50 rounded-lg p-6 border-l-4 border-blue-600">
+                        <h3 class="font-bold text-gray-800 mb-4">Statistiques d'impact (optionnel)</h3>
+                        <p class="text-sm text-gray-600 mb-4">Ajoutez des chiffres clés pour illustrer l'impact de l'initiative</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="flex flex-col gap-2">
+                                <label for="stat1" class="font-semibold text-gray-700 text-sm">
+                                    Statistique 1
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="stat1" 
+                                    name="stat1"
+                                    placeholder="Ex: 500+ livres"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                                />
+                            </div>
+
+                            <div class="flex flex-col gap-2">
+                                <label for="stat2" class="font-semibold text-gray-700 text-sm">
+                                    Statistique 2
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="stat2" 
+                                    name="stat2"
+                                    placeholder="Ex: 12 villages"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                                />
+                            </div>
+
+                            <div class="flex flex-col gap-2">
+                                <label for="stat3" class="font-semibold text-gray-700 text-sm">
+                                    Statistique 3
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="stat3" 
+                                    name="stat3"
+                                    placeholder="Ex: 200+ enfants"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Publication Options -->
+                    <div class="flex flex-col gap-3 p-4 bg-gray-50 rounded-lg">
+                        <h3 class="font-semibold text-gray-800">Options de publication</h3>
+                        
+                        <label class="flex items-center gap-3 cursor-pointer">
+                            <input 
+                                type="checkbox" 
+                                name="featured"
+                                class="w-5 h-5 text-orange-600 border-gray-300 rounded focus:ring-orange-500"
+                            />
+                            <span class="text-gray-700">Mettre en avant sur la page d'accueil</span>
+                        </label>
+
+                        <label class="flex items-center gap-3 cursor-pointer">
+                            <input 
+                                type="checkbox" 
+                                name="comments"
+                                checked
+                                class="w-5 h-5 text-orange-600 border-gray-300 rounded focus:ring-orange-500"
+                            />
+                            <span class="text-gray-700">Autoriser les commentaires</span>
+                        </label>
+
+                        <label class="flex items-center gap-3 cursor-pointer">
+                            <input 
+                                type="checkbox" 
+                                name="notifications"
+                                class="w-5 h-5 text-orange-600 border-gray-300 rounded focus:ring-orange-500"
+                            />
+                            <span class="text-gray-700">Envoyer une notification aux abonnés</span>
+                        </label>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex gap-4 pt-4 border-t">
+                        <button 
+                            type="submit"
+                            class="flex-1 px-6 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition font-semibold flex items-center justify-center gap-2"
+                        >
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Publier l'article
+                        </button>
+
+                        <button 
+                            type="button"
+                            class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition font-semibold"
+                        >
+                            Enregistrer comme brouillon
+                        </button>
+
+                        <a 
+                            href="admin.html"
+                            class="px-6 py-3 bg-white text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 transition font-semibold"
+                        >
+                            Annuler
+                        </a>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Preview Section -->
+            <div class="mt-8 bg-white rounded-lg shadow p-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800">Aperçu</h2>
+                    <button class="px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 transition font-semibold text-sm">
+                        Actualiser l'aperçu
+                    </button>
+                </div>
+                <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center text-gray-500">
+                    <svg class="w-16 h-16 mx-auto mb-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/>
+                    </svg>
+                    <p>L'aperçu de votre article apparaîtra ici</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-12">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div>
+                    <p class="font-semibold">Administration - Errachidia Sahara Solidaire</p>
+                    <p class="text-gray-400 text-sm">Création d'article</p>
+                </div>
+                <div class="flex gap-4 text-sm">
+                    <a href="admin.html" class="hover:text-orange-400 transition">Retour au dashboard</a>
+                    <a href="#" class="hover:text-orange-400 transition">Aide</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

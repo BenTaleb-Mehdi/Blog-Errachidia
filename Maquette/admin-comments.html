@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modération des commentaires - Errachidia Sahara Solidaire</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-amber-50">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-orange-600 to-amber-700 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h1 class="text-3xl font-bold">Modération des commentaires</h1>
+                    <p class="text-amber-100 text-sm mt-1">Gérer les commentaires et interactions</p>
+                </div>
+                <nav class="flex gap-4">
+                    <a href="admin.html" class="px-4 py-2 bg-orange-700 rounded-lg hover:bg-orange-800 transition">Dashboard</a>
+                    <a href="index.html" class="px-4 py-2 bg-orange-700 rounded-lg hover:bg-orange-800 transition">Site Public</a>
+                    <button class="px-4 py-2 bg-red-600 rounded-lg hover:bg-red-700 transition">Déconnexion</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Breadcrumb -->
+        <div class="mb-6 text-sm text-gray-600">
+            <a href="admin.html" class="hover:text-orange-600">Dashboard</a>
+            <span class="mx-2">/</span>
+            <span class="text-gray-800">Modération des commentaires</span>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="bg-white rounded-lg shadow mb-8">
+            <div class="flex border-b">
+                <button class="flex-1 px-6 py-4 font-semibold text-orange-600 border-b-2 border-orange-600">
+                    En attente (5)
+                </button>
+                <button class="flex-1 px-6 py-4 font-semibold text-gray-600 hover:text-orange-600 hover:bg-orange-50 transition">
+                    Approuvés (42)
+                </button>
+                <button class="flex-1 px-6 py-4 font-semibold text-gray-600 hover:text-orange-600 hover:bg-orange-50 transition">
+                    Tous (47)
+                </button>
+            </div>
+        </div>
+
+        <!-- Statistics -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm">Total</p>
+                        <p class="text-3xl font-bold text-gray-800 mt-2">47</p>
+                    </div>
+                    <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm">En attente</p>
+                        <p class="text-3xl font-bold text-yellow-600 mt-2">5</p>
+                    </div>
+                    <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm">Approuvés</p>
+                        <p class="text-3xl font-bold text-green-600 mt-2">42</p>
+                    </div>
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm">Aujourd'hui</p>
+                        <p class="text-3xl font-bold text-blue-600 mt-2">3</p>
+                    </div>
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bulk Actions -->
+        <div class="bg-white rounded-lg shadow p-4 mb-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <label class="flex items-center gap-2 cursor-pointer">
+                        <input type="checkbox" class="w-5 h-5 text-orange-600 border-gray-300 rounded focus:ring-orange-500"/>
+                        <span class="text-gray-700 font-semibold">Tout sélectionner</span>
+                    </label>
+                    <span class="text-gray-500 text-sm">0 sélectionné</span>
+                </div>
+                <div class="flex gap-2">
+                    <button class="px-4 py-2 bg-green-100 text-green-700 rounded-lg hover:bg-green-200 transition font-semibold text-sm">
+                        Approuver la sélection
+                    </button>
+                    <button class="px-4 py-2 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition font-semibold text-sm">
+                        Supprimer la sélection
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comments List - Pending -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Commentaires en attente de modération</h2>
+            
+            <div class="flex flex-col gap-4">
+                <!-- Comment 1 - Pending -->
+                <div class="bg-white rounded-lg shadow p-6 border-l-4 border-yellow-500">
+                    <div class="flex items-start gap-4">
+                        <input type="checkbox" class="mt-1 w-5 h-5 text-orange-600 border-gray-300 rounded focus:ring-orange-500"/>
+                        
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center text-white font-bold">
+                                M
+                            </div>
+                        </div>
+
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between mb-2">
+                                <div>
+                                    <h3 class="font-bold text-gray-800">Mohammed Tazi</h3>
+                                    <p class="text-sm text-gray-500">Il y a 2 heures</p>
+                                </div>
+                                <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-xs font-semibold">
+                                    En attente
+                                </span>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-lg p-4 mb-3">
+                                <p class="text-gray-700">
+                                    Excellente initiative ! J'aimerais savoir si vous acceptez des bénévoles pour accompagner la bibliothèque mobile lors de ses tournées. Je suis enseignant à la retraite et je serais ravi de participer.
+                                </p>
+                            </div>
+
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="text-sm text-gray-600">
+                                    <span class="font-semibold">Article:</span> Bibliothèque mobile à Goulmima
+                                </span>
+                                <span class="text-gray-400">•</span>
+                                <span class="text-sm text-gray-600">
+                                    <span class="font-semibold">Catégorie:</span> Éducation
+                                </span>
+                            </div>
+
+                            <div class="flex gap-2">
+                                <button class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-semibold text-sm flex items-center gap-2">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    Approuver
+                                </button>
+                                <button class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition font-semibold text-sm flex items-center gap-2">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                                    </svg>
+                                    Supprimer
+                                </button>
+                                <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition font-semibold text-sm">
+                                    Voir l'article
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comment 2 - Pending -->
+                <div class="bg-white rounded-lg shadow p-6 border-l-4 border-yellow-500">
+                    <div class="flex items-start gap-4">
+                        <input type="checkbox" class="mt-1 w-5 h-5 text-orange-600 border-gray-300 rounded focus:ring-orange-500"/>
+                        
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-bold">
+                                L
+                            </div>
+                        </div>
+
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between mb-2">
+                                <div>
+                                    <h3 class="font-bold text-gray-800">Laila Amrani</h3>
+                                    <p class="text-sm text-gray-500">Il y a 4 heures</p>
+                                </div>
+                                <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-xs font-semibold">
+                                    En attente
+                                </span>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-lg p-4 mb-3">
+                                <p class="text-gray-700">
+                                    Félicitations pour cette belle réalisation ! Est-ce que vous prévoyez d'étendre ce modèle à d'autres régions ? Je connais plusieurs villages qui pourraient bénéficier d'une initiative similaire.
+                                </p>
+                            </div>
+
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="text-sm text-gray-600">
+                                    <span class="font-semibold">Article:</span> Coopérative de dattes bio à Erfoud
+                                </span>
+                                <span class="text-gray-400">•</span>
+                                <span class="text-sm text-gray-600">
+                                    <span class="font-semibold">Catégorie:</span> Agriculture
+                                </span>
+                            </div>
+
+                            <div class="flex gap-2">
+                                <button class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-semibold text-sm flex items-center gap-2">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    Approuver
+                                </button>
+                                <button class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition font-semibold text-sm flex items-center gap-2">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                                    </svg>
+                                    Supprimer
+                                </button>
+                                <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition font-semibold text-sm">
+                                    Voir l'article
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comment 3 - Pending (Potential spam) -->
+                <div class="bg-white rounded-lg shadow p-6 border-l-4 border-red-500">
+                    <div class="flex items-start gap-4">
+                        <input type="checkbox" class="mt-1 w-5 h-5 text-orange-600 border-gray-300 rounded focus:ring-orange-500"/>
+                        
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center text-white font-bold">
+                                ?
+                            </div>
+                        </div>
+
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between mb-2">
+                                <div>
+                                    <h3 class="font-bold text-gray-800">Utilisateur Anonyme</h3>
+                                    <p class="text-sm text-gray-500">Il y a 6 heures</p>
+                                </div>
+                                <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-xs font-semibold">
+                                    Suspect
+                                </span>
+                            </div>
+
+                            <div class="bg-red-50 rounded-lg p-4 mb-3">
+                                <p class="text-gray-700">
+                                    Visitez notre site pour des opportunités d'investissement exceptionnelles! [URL suspecte supprimée]
+                                </p>
+                            </div>
+
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="px-2 py-1 bg-red-100 text-red-700 rounded text-xs font-semibold">
+                                    ⚠️ Contenu suspect détecté
+                                </span>
+                            </div>
+
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="text-sm text-gray-600">
+                                    <span class="font-semibold">Article:</span> Système d'irrigation solaire à Rissani
+                                </span>
+                            </div>
+
+                            <div class="flex gap-2">
+                                <button class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition font-semibold text-sm flex items-center gap-2">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                                    </svg>
+                                    Supprimer (spam)
+                                </button>
+                                <button class="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition font-semibold text-sm">
+                                    Bloquer l'utilisateur
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Approved Comments Section -->
+        <section>
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Commentaires récemment approuvés</h2>
+            
+            <div class="flex flex-col gap-4">
+                <!-- Approved Comment 1 -->
+                <div class="bg-white rounded-lg shadow p-6 border-l-4 border-green-500">
+                    <div class="flex items-start gap-4">
+                        <input type="checkbox" class="mt-1 w-5 h-5 text-orange-600 border-gray-300 rounded focus:ring-orange-500"/>
+                        
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-bold">
+                                A
+                            </div>
+                        </div>
+
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between mb-2">
+                                <div>
+                                    <h3 class="font-bold text-gray-800">Amal Radi</h3>
+                                    <p class="text-sm text-gray-500">4 novembre 2025</p>
+                                </div>
+                                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold">
+                                    Approuvé
+                                </span>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-lg p-4 mb-3">
+                                <p class="text-gray-700">
+                                    Quelle belle initiative ! J'espère que ce projet pourra s'étendre à d'autres régions. L'accès à la lecture est fondamental pour l'éducation de nos enfants.
+                                </p>
+                            </div>
+
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="text-sm text-gray-600">
+                                    <span class="font-semibold">Article:</span> Bibliothèque mobile à Goulmima
+                                </span>
+                            </div>
+
+                            <div class="flex gap-2">
+                                <button class="px-4 py-2 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition font-semibold text-sm">
+                                    Supprimer
+                                </button>
+                                <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition font-semibold text-sm">
+                                    Voir l'article
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Approved Comment 2 -->
+                <div class="bg-white rounded-lg shadow p-6 border-l-4 border-green-500">
+                    <div class="flex items-start gap-4">
+                        <input type="checkbox" class="mt-1 w-5 h-5 text-orange-600 border-gray-300 rounded focus:ring-orange-500"/>
+                        
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-white font-bold">
+                                K
+                            </div>
+                        </div>
+
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between mb-2">
+                                <div>
+                                    <h3 class="font-bold text-gray-800">Karim Ait Said</h3>
+                                    <p class="text-sm text-gray-500">4 novembre 2025</p>
+                                </div>
+                                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold">
+                                    Approuvé
+                                </span>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-lg p-4 mb-3">
+                                <p class="text-gray-700">
+                                    Bravo à l'association ! Je serais intéressé pour faire un don de livres. Comment puis-je vous contacter ?
+                                </p>
+                            </div>
+
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="text-sm text-gray-600">
+                                    <span class="font-semibold">Article:</span> Bibliothèque mobile à Goulmima
+                                </span>
+                            </div>
+
+                            <div class="flex gap-2">
+                                <button class="px-4 py-2 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition font-semibold text-sm">
+                                    Supprimer
+                                </button>
+                                <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition font-semibold text-sm">
+                                    Voir l'article
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-12">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div>
+                    <p class="font-semibold">Administration - Errachidia Sahara Solidaire</p>
+                    <p class="text-gray-400 text-sm">Modération des commentaires</p>
+                </div>
+                <div class="flex gap-4 text-sm">
+                    <a href="admin.html" class="hover:text-orange-400 transition">Retour au dashboard</a>
+                    <a href="#" class="hover:text-orange-400 transition">Aide</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
