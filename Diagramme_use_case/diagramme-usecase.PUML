@@ -1,0 +1,42 @@
+@startuml
+
+left to right direction
+skinparam packageStyle rectangle
+skinparam usecase {
+  BackgroundColor White
+  BorderColor Black
+}
+
+actor "Visitor\n(Guest)" as Visitor
+actor "Initiator\n(Youssef / Association)" as Initiator
+actor "Registered User\n(Amal)" as Registered
+actor "Citizen\n(Volunteer / Donor)" as Citizen
+
+package "Errachidia – Sahara Solidaire Platform" {
+  
+  ' Use Cases
+  usecase "View Projects" as UC_View
+  usecase "Publish Update / Article" as UC_Publish
+  usecase "Comment / Like / Share" as UC_Comment
+  usecase "Donate / Volunteer" as UC_Participate
+  usecase "Search / Filter by Category" as UC_Search
+
+}
+
+' -------------------------
+' Relationships
+' -------------------------
+
+Visitor -- UC_View
+Initiator -- UC_Publish
+Registered -- UC_Comment
+Registered -- UC_Search
+Citizen -- UC_Participate
+Citizen -- UC_Search
+
+' Include / Extend relationships
+UC_Participate .> UC_View : <<include>>
+UC_Comment .> UC_View : <<include>>
+UC_Search .> UC_View : <<include>>
+
+@enduml
