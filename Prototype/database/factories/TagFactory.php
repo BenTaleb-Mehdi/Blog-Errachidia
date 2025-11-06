@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 use Illuminate\Support\Testing\Fakes\Fake;
 
 /**
@@ -17,9 +18,10 @@ class TagFactory extends Factory
      */
     public function definition(): array
     {
+        $name=fake()->unique()->word();
         return [
-            'name_tag' => Fake()->userName(),
-            'des' => Fake()->text(),
+            'name'=> $name,
+            'slug'=> Str::slug($name),
         ];
     }
 }

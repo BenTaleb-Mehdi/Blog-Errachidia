@@ -22,7 +22,9 @@ class User extends Authenticatable
         'email',
         'password',
     ];
-
+       public function articles(){
+        return $this->hasMany(Article::class);
+    }
     /**
      * The attributes that should be hidden for serialization.
      *

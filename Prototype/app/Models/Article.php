@@ -9,17 +9,11 @@ class Article extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'user_id',
-        'article_name',
-        'des'
+        protected $fillable=[
+        'name', 'slug'
     ];
 
-    public function user(){
-        return $this->hasMany(User::class);
-    }
-    
-    public function Tag(){
-        return $this->belongsTo(Tag::class);
+    public function articles(){
+        return $this->belongsToMany(Article::class);
     }
 }

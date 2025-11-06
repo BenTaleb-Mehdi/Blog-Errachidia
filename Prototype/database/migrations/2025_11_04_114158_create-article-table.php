@@ -14,8 +14,10 @@ return new class extends Migration
         Schema::create('Articles', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->string('article_name');
-            $table->string('des');
+            $table->string('title', 180);
+            $table->string('slug', 200)->unique();
+            $table->text('excrept')->nullable();
+            $table->longText('content')->nullable();
             $table->timestamps();
         });
     }

@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 use Illuminate\Support\Testing\Fakes\Fake;
 
 /**
@@ -18,10 +19,13 @@ class ArticleFactory extends Factory
      */
     public function definition(): array
     {
+        $title = fake()->unique()->sentence(4);
         return [
-            'user_id' => User::inRandomOrder()->value('id') ?? 1,
-            'article_name' => Fake()->userName(),
-            'des' => Fake()->text()
+            'user_id'=> User::inRandomOrder()->value('id') ?? 1,
+            'title'=> $title,
+            'slug'=> Str::slug($title),
+            'excrept'=>fake()->sentence(12),
+            'content'=> fake()->paragraphs(3, true),
         ];
     }
 }
