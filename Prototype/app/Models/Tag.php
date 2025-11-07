@@ -7,18 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
-    use HasFactory;
+      use HasFactory;
 
-  
-    protected $fillable= [
-        'user_id', 'title', 'slug', 'excrept', 'content'
+        protected $fillable=[
+        'name', 'slug'
     ];
 
-    public function user(){
-        return $this->belongsTo(User::class);
-    }
-
-    public function tags(){
-        return $this->belongsToMany(Tag::class);
+    public function articles(){
+        return $this->belongsToMany(Article::class);
     }
 }
