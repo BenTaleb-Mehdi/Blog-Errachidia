@@ -9,9 +9,14 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     use HasFactory;
+    
     protected $fillable = [
         'title',
-        'category',
-        'statuts',
+        'statut',
     ];
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'article_category', 'article_id', 'category_id');
+    }
 }

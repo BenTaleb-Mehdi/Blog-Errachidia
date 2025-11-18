@@ -11,10 +11,11 @@ class ArticleService
         $query = Article::query();
         
         if(isset($fillter['category']) && !empty($fillter['category'])){
-            $query->where('category',$fillter['category']);
-            
+            $query->whereHas('categories', function($q) use ($fillter) {
+                $q->where('slug', $fillter['category']);
+            });
         }
-        return $query->orderBy('created_at','desc')->paginate(10);
+        return $query->with('categories')->orderBy('created_at','desc')->paginate(10);
     }
 
 

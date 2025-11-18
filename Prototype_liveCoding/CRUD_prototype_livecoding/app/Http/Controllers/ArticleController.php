@@ -19,7 +19,8 @@ class ArticleController extends Controller
     public function index(request $request){
         $filters = $request->only('category');
         $articles = $this->articleService->getArticle($filters);
-        return view('Article.index',compact('articles'));
+        $categories = \App\Models\category::all();
+        return view('Article.index',compact('articles', 'categories'));
     }
 
 
