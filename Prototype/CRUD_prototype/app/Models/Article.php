@@ -12,7 +12,11 @@ class Article extends Model
     
     protected $fillable = [
         'title',
-        'content',
-        'author',
+        'statut',
     ];
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'article_category', 'article_id', 'category_id');
+    }
 }
