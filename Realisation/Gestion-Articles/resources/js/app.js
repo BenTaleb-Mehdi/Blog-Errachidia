@@ -134,5 +134,16 @@ import 'preline';
       });
   });
 
+
+      const editorEl = document.querySelector("#hs-editor-tiptap");
+      const hiddenInput = document.querySelector("#article-content");
+
+      // Listen to content changes and set hidden input value
+      editorEl.addEventListener("input", function () {
+          hiddenInput.value = editorEl.querySelector(
+              "[data-hs-editor-field]"
+          ).innerHTML;
+      });
+
   
 

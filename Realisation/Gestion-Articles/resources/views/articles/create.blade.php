@@ -88,11 +88,12 @@
             </button>
             </div>
 
-            <div class="h-40 overflow-auto" data-hs-editor-field="" name="content" ></div>
+            <div class="h-40 overflow-auto" data-hs-editor-field></div>
+            
         </div>
         </div>
         
-        
+         <input type="hidden" name="content" id="article-content">
         <!-- End Tiptap -->
 
         <label class="block mb-2 font-medium">Statut</label>

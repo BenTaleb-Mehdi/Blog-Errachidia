@@ -28,6 +28,7 @@ class ArticleService
         $article = Article::create([
             'title'  => $data['title'],
             'statut' => $data['statut'],
+            'content' => $data['content'],
         ]);
 
         // Attach categories
@@ -39,7 +40,7 @@ class ArticleService
     }
 
 
-    // Delete article
+    
     public function deleteArticle($id)
     {
         $article = Article::findOrFail($id);
