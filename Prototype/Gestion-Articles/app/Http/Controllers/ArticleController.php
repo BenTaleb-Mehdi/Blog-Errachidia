@@ -13,7 +13,7 @@ class ArticleController extends Controller
     {
         $categories = Category::all();
 
-        $articles = Article::query();
+        $articles = Article::query(); 
         $user = auth()->user();
         if ($user->hasrole('admin')){
             $articles = Article::latest()->paginate(10);
